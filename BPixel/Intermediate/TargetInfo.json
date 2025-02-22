@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "BPixel",
+			"Path": "..\\Source\\BPixel.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "BPixelEditor",
+			"Path": "..\\Source\\BPixelEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/Javier/Documents/Unreal Projects/BPixel/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/4/PT/ZXUQMNLL9GZ2UNQ5D0R4A4.uasset",
+				"C:/Users/Javier/Documents/Unreal Projects/BPixel/Content/FirstPerson/Blueprints/BP_FirstPersonProjectile.uasset",
+				"C:/Users/Javier/Documents/Unreal Projects/BPixel/Content/FirstPerson/Blueprints/BP_FirstPersonCharacter.uasset",
+				"C:/Users/Javier/Documents/Unreal Projects/BPixel/Content/FirstPerson/Blueprints/BP_PickUp_Rifle.uasset",
+				"C:/Users/Javier/Documents/Unreal Projects/BPixel/Content/FirstPerson/Input/IMC_Default.uasset",
+				"C:/Users/Javier/Documents/Unreal Projects/BPixel/Content/FirstPerson/Input/Actions/BPixel_Sprint.uasset"
+			]
+		}
+	]
+}
