@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\javier\\documents\\unreal projects\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\bpixelweaponcomponent.gen.cpp",
+        "Source": "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\bpixelweaponcomponent.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\javier\\documents\\unreal projects\\bpixel\\intermediate\\build\\win64\\x64\\bpixeleditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\x64\\bpixeleditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "c:\\users\\javier\\documents\\unreal projects\\bpixel\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bpixel\\definitions.bpixel.h",
-            "c:\\users\\javier\\documents\\unreal projects\\bpixel\\source\\bpixel\\bpixelweaponcomponent.h",
-            "c:\\users\\javier\\documents\\unreal projects\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\bpixelweaponcomponent.generated.h"
+            "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bpixel\\definitions.bpixel.h",
+            "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\source\\bpixel\\bpixelweaponcomponent.h",
+            "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\bpixelweaponcomponent.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

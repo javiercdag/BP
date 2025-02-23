@@ -209,14 +209,14 @@ ABPixelProjectile::~ABPixelProjectile() {}
 // End Class ABPixelProjectile
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_ABPixelProjectile, ABPixelProjectile::StaticClass, TEXT("ABPixelProjectile"), &Z_Registration_Info_UClass_ABPixelProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABPixelProjectile), 3296024303U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_3434204954(TEXT("/Script/BPixel"),
-	Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_3434204954(TEXT("/Script/BPixel"),
+	Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

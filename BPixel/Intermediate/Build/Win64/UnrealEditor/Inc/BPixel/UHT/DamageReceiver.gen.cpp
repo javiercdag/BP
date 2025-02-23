@@ -78,14 +78,14 @@ UDamageReceiver::~UDamageReceiver() {}
 // End Class UDamageReceiver
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_DamageReceiver_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_DamageReceiver_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_UDamageReceiver, UDamageReceiver::StaticClass, TEXT("UDamageReceiver"), &Z_Registration_Info_UClass_UDamageReceiver, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDamageReceiver), 206194756U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_DamageReceiver_h_1517220755(TEXT("/Script/BPixel"),
-	Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_DamageReceiver_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_DamageReceiver_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_DamageReceiver_h_1517220755(TEXT("/Script/BPixel"),
+	Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_DamageReceiver_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_DamageReceiver_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

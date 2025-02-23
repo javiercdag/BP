@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Users\\Javier\\Documents\\Unreal Projects\\BPixel\\Source\\BPixel\\BPixel.Build.cs",
-		"C:\\Users\\Javier\\Documents\\Unreal Projects\\BPixel\\Source\\BPixel.Target.cs",
-		"C:\\Users\\Javier\\Documents\\Unreal Projects\\BPixel\\Source\\BPixelEditor.Target.cs"
+		"C:\\Users\\Javier\\Documents\\Unreal Projects\\BP\\BPixel\\Source\\BPixel\\BPixel.Build.cs",
+		"C:\\Users\\Javier\\Documents\\Unreal Projects\\BP\\BPixel\\Source\\BPixel.Target.cs",
+		"C:\\Users\\Javier\\Documents\\Unreal Projects\\BP\\BPixel\\Source\\BPixelEditor.Target.cs"
 	],
 	"EngineVersion": "5.5.3"
 }

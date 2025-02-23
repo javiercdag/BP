@@ -51,13 +51,7 @@ class ABPixelCharacter : public ACharacter
 	class UInputAction* SprintAction;
 	
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay, meta = (AllowPrivateAccess = "true"))
-	float SprintSpeed = 50.f;
-
-	UPROPERTY(BlueprintReadOnly, Category = Gameplay)
-	bool bSprinting;
-	
-	ABPixelCharacter();
+	ABPixelCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
 protected:
 	/** Called for movement input */

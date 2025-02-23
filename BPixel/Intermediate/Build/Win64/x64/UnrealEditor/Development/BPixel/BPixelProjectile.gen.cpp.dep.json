@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\javier\\documents\\unreal projects\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\bpixelprojectile.gen.cpp",
+        "Source": "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\bpixelprojectile.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\javier\\documents\\unreal projects\\bpixel\\intermediate\\build\\win64\\x64\\bpixeleditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\x64\\bpixeleditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "c:\\users\\javier\\documents\\unreal projects\\bpixel\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bpixel\\definitions.bpixel.h",
-            "c:\\users\\javier\\documents\\unreal projects\\bpixel\\source\\bpixel\\bpixelprojectile.h",
-            "c:\\users\\javier\\documents\\unreal projects\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\bpixelprojectile.generated.h"
+            "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bpixel\\definitions.bpixel.h",
+            "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\source\\bpixel\\bpixelprojectile.h",
+            "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\bpixelprojectile.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

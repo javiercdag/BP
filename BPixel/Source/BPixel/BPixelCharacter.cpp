@@ -1,7 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "BPixelCharacter.h"
-#include "BPixelProjectile.h"
+
+#include "BPCharacterMovement.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -10,14 +11,13 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
-#include "GameFramework/CharacterMovementComponent.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
 //////////////////////////////////////////////////////////////////////////
 // ABPixelCharacter
 
-ABPixelCharacter::ABPixelCharacter()
+ABPixelCharacter::ABPixelCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UBPCharacterMovement>(CharacterMovementComponentName))
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
@@ -108,13 +108,11 @@ void ABPixelCharacter::Look(const FInputActionValue& Value)
 
 void ABPixelCharacter::StartSprint()
 {
-	GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
+	GetCharacterMovement<UBPCharacterMovement>()->StartSprint();
 }
 
 void ABPixelCharacter::EndSprint()
 {
-	const UCharacterMovementComponent* DefaultController = GetDefault<UCharacterMovementComponent>(GetCharacterMovement()->GetClass());
-	float DefaultMaxSpeed = DefaultController->MaxWalkSpeed;
-	GetCharacterMovement()->MaxWalkSpeed = DefaultMaxSpeed;
+	GetCharacterMovement<UBPCharacterMovement>()->EndSprint();
 }
 

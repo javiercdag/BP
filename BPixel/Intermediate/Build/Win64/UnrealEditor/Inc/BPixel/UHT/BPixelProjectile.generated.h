@@ -17,11 +17,11 @@ struct FHitResult;
 #endif
 #define BPIXEL_BPixelProjectile_generated_h
 
-#define FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnHit);
 
 
-#define FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABPixelProjectile(); \
 	friend struct Z_Construct_UClass_ABPixelProjectile_Statics; \
@@ -32,7 +32,7 @@ public: \
 
 
 
-#define FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ABPixelProjectile(ABPixelProjectile&&); \
@@ -44,13 +44,13 @@ public: \
 	NO_API virtual ~ABPixelProjectile();
 
 
-#define FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_12_PROLOG
-#define FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_15_GENERATED_BODY \
+#define FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_12_PROLOG
+#define FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_15_INCLASS_NO_PURE_DECLS \
-	FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h_15_ENHANCED_CONSTRUCTORS \
+	FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_15_INCLASS_NO_PURE_DECLS \
+	FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -58,7 +58,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> BPIXEL_API UClass* StaticClass<class ABPixelProjectile>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_BPixelProjectile_h
+#define CURRENT_FILE_ID FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -76,14 +76,14 @@ AZombie::~AZombie() {}
 // End Class AZombie
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_Zombie_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_Zombie_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_AZombie, AZombie::StaticClass, TEXT("AZombie"), &Z_Registration_Info_UClass_AZombie, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AZombie), 3274477060U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_Zombie_h_1492986670(TEXT("/Script/BPixel"),
-	Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_Zombie_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BPixel_Source_BPixel_Zombie_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_Zombie_h_1492986670(TEXT("/Script/BPixel"),
+	Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_Zombie_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_Zombie_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration
