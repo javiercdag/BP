@@ -6,6 +6,9 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"C:/Users/Javier/Documents/Unreal Projects/BP/BPixel/Content/FirstPerson/Blueprints/BP_FirstPersonCharacter.uasset",
+				"C:/Users/Javier/Documents/Unreal Projects/BP/BPixel/Content/FirstPerson/Blueprints/MovingTarget.uasset",
+				"C:/Users/Javier/Documents/Unreal Projects/BP/BPixel/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/7/5X/D40MKE3LH5NRB57VREB93K.uasset",
+				"C:/Users/Javier/Documents/Unreal Projects/BP/BPixel/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/E/KW/66Q6GO34142BV2AI6YO632.uasset",
 				"C:/Users/Javier/Documents/Unreal Projects/BPixel/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/4/PT/ZXUQMNLL9GZ2UNQ5D0R4A4.uasset",
 				"C:/Users/Javier/Documents/Unreal Projects/BPixel/Content/FirstPerson/Blueprints/BP_FirstPersonProjectile.uasset",
 				"C:/Users/Javier/Documents/Unreal Projects/BPixel/Content/FirstPerson/Blueprints/BP_FirstPersonCharacter.uasset",
