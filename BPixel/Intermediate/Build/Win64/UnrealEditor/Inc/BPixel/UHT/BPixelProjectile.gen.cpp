@@ -132,10 +132,6 @@ struct Z_Construct_UClass_ABPixelProjectile_Statics
 		{ "ToolTip", "Sphere collision component" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DamageAmount_MetaData[] = {
-		{ "Category", "Projectile" },
-		{ "ModuleRelativePath", "BPixelProjectile.h" },
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileMovement_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
@@ -148,10 +144,14 @@ struct Z_Construct_UClass_ABPixelProjectile_Statics
 		{ "ToolTip", "Projectile movement component" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DamageAmount_MetaData[] = {
+		{ "Category", "Projectile" },
+		{ "ModuleRelativePath", "BPixelProjectile.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionComp;
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_DamageAmount;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ProjectileMovement;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_DamageAmount;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -164,12 +164,12 @@ struct Z_Construct_UClass_ABPixelProjectile_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABPixelProjectile_Statics::NewProp_CollisionComp = { "CollisionComp", nullptr, (EPropertyFlags)0x00400000000b0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABPixelProjectile, CollisionComp), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CollisionComp_MetaData), NewProp_CollisionComp_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABPixelProjectile_Statics::NewProp_DamageAmount = { "DamageAmount", nullptr, (EPropertyFlags)0x0040000000030001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABPixelProjectile, DamageAmount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DamageAmount_MetaData), NewProp_DamageAmount_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABPixelProjectile_Statics::NewProp_ProjectileMovement = { "ProjectileMovement", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABPixelProjectile, ProjectileMovement), Z_Construct_UClass_UProjectileMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ProjectileMovement_MetaData), NewProp_ProjectileMovement_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABPixelProjectile_Statics::NewProp_DamageAmount = { "DamageAmount", nullptr, (EPropertyFlags)0x0010000000030001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABPixelProjectile, DamageAmount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DamageAmount_MetaData), NewProp_DamageAmount_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABPixelProjectile_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABPixelProjectile_Statics::NewProp_CollisionComp,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABPixelProjectile_Statics::NewProp_DamageAmount,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABPixelProjectile_Statics::NewProp_ProjectileMovement,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABPixelProjectile_Statics::NewProp_DamageAmount,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABPixelProjectile_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ABPixelProjectile_Statics::DependentSingletons[])() = {
@@ -212,10 +212,10 @@ ABPixelProjectile::~ABPixelProjectile() {}
 struct Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABPixelProjectile, ABPixelProjectile::StaticClass, TEXT("ABPixelProjectile"), &Z_Registration_Info_UClass_ABPixelProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABPixelProjectile), 3296024303U) },
+		{ Z_Construct_UClass_ABPixelProjectile, ABPixelProjectile::StaticClass, TEXT("ABPixelProjectile"), &Z_Registration_Info_UClass_ABPixelProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABPixelProjectile), 2041354728U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_3434204954(TEXT("/Script/BPixel"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_2889369847(TEXT("/Script/BPixel"),
 	Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelProjectile_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

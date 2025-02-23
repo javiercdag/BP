@@ -7,9 +7,7 @@
         "Includes": [
             "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bpixel\\definitions.bpixel.h",
             "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\source\\bpixel\\damagereceiver.h",
-            "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\damagereceiver.generated.h",
-            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.43.34808\\include\\string",
-            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.43.34808\\include\\cctype"
+            "c:\\users\\javier\\documents\\unreal projects\\bp\\bpixel\\intermediate\\build\\win64\\unrealeditor\\inc\\bpixel\\uht\\damagereceiver.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

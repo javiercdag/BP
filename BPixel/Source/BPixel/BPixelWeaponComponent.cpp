@@ -46,7 +46,8 @@ void UBPixelWeaponComponent::Fire()
 			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 	
 			// Spawn the projectile at the muzzle
-			World->SpawnActor<ABPixelProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			ABPixelProjectile* SpawnedProjectile = World->SpawnActor<ABPixelProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			SpawnedProjectile->DamageAmount = Damage;
 		}
 	}
 	

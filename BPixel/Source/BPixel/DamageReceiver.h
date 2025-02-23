@@ -12,16 +12,20 @@ class BPIXEL_API UDamageReceiver : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
+	UPROPERTY(Category="HitPoints", EditAnywhere, BlueprintReadWrite)
+	float HitPoints;
+	
 	// Sets default values for this component's properties
 	UDamageReceiver();
 
 protected:
+	UPROPERTY(Category="HitPoints", EditAnywhere, BlueprintReadWrite)
+	float MaxHitPoints = 10;
+	
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	void ApplyHitDamage(float DamageAmount);
 };

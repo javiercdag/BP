@@ -1,12 +1,12 @@
-"C:\Users\Javier\Documents\Unreal Projects\BPixel\Intermediate\Build\Win64\UnrealEditor\Inc\BPixel\UHT\BPixelProjectile.gen.cpp"
-/FI"C:\Users\Javier\Documents\Unreal Projects\BPixel\Intermediate\Build\Win64\x64\BPixelEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/FI"C:\Users\Javier\Documents\Unreal Projects\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\Definitions.BPixel.h"
-/Yu"C:\Users\Javier\Documents\Unreal Projects\BPixel\Intermediate\Build\Win64\x64\BPixelEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"C:\Users\Javier\Documents\Unreal Projects\BPixel\Intermediate\Build\Win64\x64\BPixelEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
-/Fo"C:\Users\Javier\Documents\Unreal Projects\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\BPixelProjectile.gen.cpp.lc.obj"
-/experimental:log "C:\Users\Javier\Documents\Unreal Projects\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\BPixelProjectile.gen.cpp.sarif"
-/sourceDependencies"C:\Users\Javier\Documents\Unreal Projects\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\BPixelProjectile.gen.cpp.dep.lc.json"
-@"C:\Users\Javier\Documents\Unreal Projects\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\BPixel.Shared.rsp"
+"C:\Users\Javier\Documents\Unreal Projects\BP\BPixel\Intermediate\Build\Win64\UnrealEditor\Inc\BPixel\UHT\BPixelProjectile.gen.cpp"
+/FI"C:\Users\Javier\Documents\Unreal Projects\BP\BPixel\Intermediate\Build\Win64\x64\BPixelEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"C:\Users\Javier\Documents\Unreal Projects\BP\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\Definitions.BPixel.h"
+/Yu"C:\Users\Javier\Documents\Unreal Projects\BP\BPixel\Intermediate\Build\Win64\x64\BPixelEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"C:\Users\Javier\Documents\Unreal Projects\BP\BPixel\Intermediate\Build\Win64\x64\BPixelEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"C:\Users\Javier\Documents\Unreal Projects\BP\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\BPixelProjectile.gen.cpp.lc.obj"
+/experimental:log "C:\Users\Javier\Documents\Unreal Projects\BP\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\BPixelProjectile.gen.cpp.sarif"
+/sourceDependencies"C:\Users\Javier\Documents\Unreal Projects\BP\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\BPixelProjectile.gen.cpp.dep.lc.json"
+@"C:\Users\Javier\Documents\Unreal Projects\BP\BPixel\Intermediate\Build\Win64\x64\UnrealEditor\Development\BPixel\BPixel.Shared.rsp"
 /d2ssa-cfg-question-
 /Zc:inline
 /nologo

@@ -198,6 +198,10 @@ struct Z_Construct_UClass_UBPixelWeaponComponent_Statics
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "BPixelWeaponComponent.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Damage_MetaData[] = {
+		{ "Category", "WeaponStats" },
+		{ "ModuleRelativePath", "BPixelWeaponComponent.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileClass_MetaData[] = {
 		{ "Category", "Projectile" },
 #if !UE_BUILD_SHIPPING
@@ -261,6 +265,7 @@ struct Z_Construct_UClass_UBPixelWeaponComponent_Statics
 #endif
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Damage;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_ProjectileClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FireSound;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FireAnimation;
@@ -280,6 +285,7 @@ struct Z_Construct_UClass_UBPixelWeaponComponent_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBPixelWeaponComponent, Damage), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Damage_MetaData), NewProp_Damage_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_ProjectileClass = { "ProjectileClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBPixelWeaponComponent, ProjectileClass), Z_Construct_UClass_UClass, Z_Construct_UClass_ABPixelProjectile_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ProjectileClass_MetaData), NewProp_ProjectileClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_FireSound = { "FireSound", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBPixelWeaponComponent, FireSound), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FireSound_MetaData), NewProp_FireSound_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_FireAnimation = { "FireAnimation", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBPixelWeaponComponent, FireAnimation), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FireAnimation_MetaData), NewProp_FireAnimation_MetaData) };
@@ -287,6 +293,7 @@ const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UBPixelWeaponC
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_FireMappingContext = { "FireMappingContext", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBPixelWeaponComponent, FireMappingContext), Z_Construct_UClass_UInputMappingContext_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FireMappingContext_MetaData), NewProp_FireMappingContext_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_FireAction = { "FireAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBPixelWeaponComponent, FireAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FireAction_MetaData), NewProp_FireAction_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBPixelWeaponComponent_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_Damage,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_ProjectileClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_FireSound,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBPixelWeaponComponent_Statics::NewProp_FireAnimation,
@@ -335,10 +342,10 @@ UBPixelWeaponComponent::~UBPixelWeaponComponent() {}
 struct Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelWeaponComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBPixelWeaponComponent, UBPixelWeaponComponent::StaticClass, TEXT("UBPixelWeaponComponent"), &Z_Registration_Info_UClass_UBPixelWeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBPixelWeaponComponent), 2507177684U) },
+		{ Z_Construct_UClass_UBPixelWeaponComponent, UBPixelWeaponComponent::StaticClass, TEXT("UBPixelWeaponComponent"), &Z_Registration_Info_UClass_UBPixelWeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBPixelWeaponComponent), 1653966856U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelWeaponComponent_h_1254642182(TEXT("/Script/BPixel"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelWeaponComponent_h_3050097858(TEXT("/Script/BPixel"),
 	Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelWeaponComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Javier_Documents_Unreal_Projects_BP_BPixel_Source_BPixel_BPixelWeaponComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

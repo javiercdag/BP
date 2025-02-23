@@ -17,15 +17,16 @@ class ABPixelProjectile : public AActor
 	/** Sphere collision component */
 	UPROPERTY(VisibleDefaultsOnly, Category=Projectile)
 	USphereComponent* CollisionComp;
-
-	UPROPERTY(VisibleDefaultsOnly, Category=Projectile)
-	float DamageAmount;
+	
 
 	/** Projectile movement component */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 
 public:
+	UPROPERTY(VisibleDefaultsOnly, Category=Projectile)
+	float DamageAmount = 1;
+	
 	ABPixelProjectile();
 
 	/** called when projectile hits something */

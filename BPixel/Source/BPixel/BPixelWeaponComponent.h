@@ -14,6 +14,9 @@ class BPIXEL_API UBPixelWeaponComponent : public USkeletalMeshComponent
 	GENERATED_BODY()
 
 public:
+	UPROPERTY(Category="WeaponStats", EditAnywhere, BlueprintReadWrite)
+	float Damage = 1.f;
+	
 	/** Projectile class to spawn */
 	UPROPERTY(EditDefaultsOnly, Category=Projectile)
 	TSubclassOf<class ABPixelProjectile> ProjectileClass;
