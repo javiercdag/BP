@@ -14,11 +14,13 @@ class BPIXEL_API ARoamingAIController : public AAIController
 {
 	GENERATED_BODY()
 
+	void TryStartRandomRoam();
+	virtual void OnPossess(APawn* InPawn) override;
 	virtual void BeginPlay() override;
 
 	protected:
 	UPROPERTY(Category="Movement", EditAnywhere, BlueprintReadWrite)
 	float MaxSearchRange = 1000.f;
 
-	virtual void OnMoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Type Result) override;
+	virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
 };

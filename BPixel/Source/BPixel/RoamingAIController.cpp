@@ -7,43 +7,36 @@
 #include "AI/NavigationSystemBase.h"
 #include "Navigation/PathFollowingComponent.h"
 
+void ARoamingAIController::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+}
+
 void ARoamingAIController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// const UNavigationSystemV1* NavSys = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
-	//
-	// FNavLocation RandomNavLocation;
-	// NavSys->GetRandomPointInNavigableRadius(GetOwner()->GetActorLocation(), MaxSearchRange, RandomNavLocation);
+	TryStartRandomRoam();
+}
+
+void ARoamingAIController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result)
+{
+	Super::OnMoveCompleted(RequestID, Result);
+	TryStartRandomRoam();
+}
+
+void ARoamingAIController::TryStartRandomRoam()
+{
 	UNavigationSystemV1* NavSys = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
-	FVector Target = FVector(2010.000000,1360.000000,90.000000);
 	
 	if (NavSys != nullptr)
 	{
 		FNavLocation ProjectedLocation;
-		NavSys->ProjectPointToNavigation(Target, ProjectedLocation, FVector(500.0f, 500.0f, 300.0f));
-		Target = ProjectedLocation.Location;
-	}
-	
-	FAIMoveRequest MoveRequest;
-	MoveRequest.SetGoalLocation(Target);
+		NavSys->GetRandomReachablePointInRadius(GetPawn()->GetActorLocation(), 5000, ProjectedLocation);
+		NavSys->ProjectPointToNavigation(ProjectedLocation.Location, ProjectedLocation);
 
-	FPathFollowingRequestResult MoveResult = MoveTo(MoveRequest, nullptr);
-	
-	if (GEngine)
-	{
-		if (MoveResult == EPathFollowingRequestResult::Type::RequestSuccessful)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("AI Move Request Successful"));
-		}
-		else
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FAILED - AI Move Request"));
-		}
+		FAIMoveRequest MoveRequest;
+		MoveRequest.SetGoalLocation(ProjectedLocation.Location);
+		MoveTo(MoveRequest, nullptr);
 	}
-}
-
-void ARoamingAIController::OnMoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Type Result)
-{
-	Super::OnMoveCompleted(RequestID, Result);
 }
