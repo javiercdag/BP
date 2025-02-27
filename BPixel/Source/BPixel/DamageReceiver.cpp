@@ -2,6 +2,8 @@
 
 #include "DamageReceiver.h"
 
+#include "UEventBus.h"
+
 // Sets default values for this component's properties
 UDamageReceiver::UDamageReceiver() { }
 
@@ -12,6 +14,8 @@ void UDamageReceiver::BeginPlay()
 	Super::BeginPlay();
 
 	HitPoints = MaxHitPoints;
+
+	GetWorld()->GetSubsystem<UEventBus>()->TargetSpawned.Broadcast(this);
 }
 
 void UDamageReceiver::ApplyHitDamage(float DamageAmount)
