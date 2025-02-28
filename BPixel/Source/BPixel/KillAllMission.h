@@ -22,4 +22,7 @@ public:
 	
 	UFUNCTION()
 	void OnTargetSpawned(UDamageReceiver* Target);
+
+	UFUNCTION()
+	void OnTargetKilled(AActor* Target);
 };

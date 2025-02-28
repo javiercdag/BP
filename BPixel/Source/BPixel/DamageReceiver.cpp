@@ -22,7 +22,7 @@ void UDamageReceiver::ApplyHitDamage(float DamageAmount)
 {
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, FString::Printf(TEXT("Damage: %f"), DamageAmount));
+		UE_LOG(LogTemp, Display, TEXT("Damage Received"));
 		HitPoints -= DamageAmount;
 		
 		if (HitPoints <= 0)

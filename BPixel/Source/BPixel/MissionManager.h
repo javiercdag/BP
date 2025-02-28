@@ -11,7 +11,7 @@ UCLASS()
 class BPIXEL_API AMissionManager : public AActor
 {
 	GENERATED_BODY()
-	
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Missions")
 	TArray<TSubclassOf<UMission>> MissionDefinitions;
@@ -23,9 +23,9 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	virtual void PostInitializeComponents() override;
+	void StartMission(int MissionIndex);
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
+public:
+	UFUNCTION()
+	void OnMissionEnded(UMission* Mission, EMissionEndType Reason);
 };
