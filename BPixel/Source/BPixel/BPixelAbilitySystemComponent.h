@@ -9,14 +9,6 @@
 /**
  * 
  */
-UENUM(BlueprintType)
-enum class AbilityInputID : uint8
-{
-	None UMETA(DisplayName = "None"),
-	Confirm UMETA(DisplayName = "Confirm"),
-	Cancel UMETA(DisplayName = "Cancel")
-};
-
 UCLASS()
 class BPIXEL_API UBPixelAbilitySystemComponent : public UAbilitySystemComponent
 {

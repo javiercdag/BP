@@ -81,13 +81,6 @@ void ABPixelCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		if (AbilitySystem)
 		{
-			AbilitySystem->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(
-				"Confirm",
-				"Cancel",
-				"AbilityInputID",
-				static_cast<int32>(AbilityInputID::Confirm),
-				static_cast<int32>(AbilityInputID::Cancel)));
-
 			for (const auto DefaultAbility : AbilitySystem->Abilities)
 			{
 				FGameplayAbilitySpecHandle AbilityHandle = AbilitySystem->GiveAbility(FGameplayAbilitySpec(DefaultAbility));
