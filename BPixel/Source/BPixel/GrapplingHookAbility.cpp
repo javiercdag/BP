@@ -16,7 +16,6 @@ void UGrapplingHookAbility::ActivateAbility(const FGameplayAbilitySpecHandle Han
 	FCollisionQueryParams  COQP;
 	COQP.AddIgnoredActor(Character);
 	bool HasHit = GetWorld()->LineTraceSingleByChannel(HitResult, PlayerController->PlayerCameraManager->GetCameraLocation(), PlayerController->PlayerCameraManager->GetCameraLocation() + PlayerController->PlayerCameraManager->GetCameraRotation().Vector() * GrapplingHookDistance, ECC_Visibility);
-	UE_LOG(LogTemp, Warning, TEXT("Grappling Hook Started"));
 
 	if (HasHit && HitResult.IsValidBlockingHit())
 	{
@@ -26,8 +25,13 @@ void UGrapplingHookAbility::ActivateAbility(const FGameplayAbilitySpecHandle Han
 		if (Actor->Tags.Contains("GrappleAttachPoint"))
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Hit Grappling Hook Attach Point"));
+			CharacterMovement->StartGrapple(Actor->GetActorLocation(), GrapplingForce, GrapplingReachDistance);
+			UE_LOG(LogTemp, Warning, TEXT("Grappling Hook Started"));
+			return;
 		}
 	}
+	
+	EndAbility(Handle, ActorInfo, ActivationInfo, false, true);
 }
 
 void UGrapplingHookAbility::EndAbility(const FGameplayAbilitySpecHandle Handle,
@@ -35,5 +39,6 @@ void UGrapplingHookAbility::EndAbility(const FGameplayAbilitySpecHandle Handle,
 	bool bReplicateEndAbility, bool bWasCancelled)
 {
 	Super::EndAbility(Handle, ActorInfo, ActivationInfo, bReplicateEndAbility, bWasCancelled);
+	CharacterMovement->EndGrapple();
 	UE_LOG(LogTemp, Warning, TEXT("Grappling Hook Ended"));
 }

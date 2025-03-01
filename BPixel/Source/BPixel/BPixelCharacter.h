@@ -71,7 +71,6 @@ protected:
 	void StartSprint();
 	void EndSprint();
 	void StartGrappling();
-	void EndGrappling();
 
 protected:
 	// APawn interface
@@ -89,5 +88,6 @@ public:
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
+	void EndGrappling();
 };
 

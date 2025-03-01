@@ -3,6 +3,8 @@
 
 #include "BPCharacterMovement.h"
 
+#include "BPixelCharacter.h"
+
 // Sets default values for this component's properties
 UBPCharacterMovement::UBPCharacterMovement()
 {
@@ -13,6 +15,26 @@ UBPCharacterMovement::UBPCharacterMovement()
 	// ...
 }
 
+void UBPCharacterMovement::TickComponent(float DeltaTime, enum ELevelTick TickType,
+	FActorComponentTickFunction* ThisTickFunction)
+{
+	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
+	if (IsGrappling)
+	{
+		FVector ToDestination = GrapplingDestination - GetActorLocation();
+
+		if (ToDestination.SquaredLength() > SquaredGrapplingReachDistance)
+		{
+			AddForce(ToDestination * GrapplingForce);
+		}
+		else
+		{
+			GetOwner<ABPixelCharacter>()->EndGrappling();
+		}
+	}
+}
+
 void UBPCharacterMovement::StartSprint()
 {
 	MaxWalkSpeed = SprintSpeed;
@@ -21,5 +43,20 @@ void UBPCharacterMovement::StartSprint()
 void UBPCharacterMovement::EndSprint()
 {
 	MaxWalkSpeed = GetDefault<UCharacterMovementComponent>(GetClass())->MaxWalkSpeed;
+}
+
+void UBPCharacterMovement::StartGrapple(const FVector& Destination, const float Force, const float ReachDistance)
+{
+	GrapplingDestination = Destination;
+	IsGrappling = true;
+	GravityScale = 0;
+	GrapplingForce = Force;
+	SquaredGrapplingReachDistance = ReachDistance * ReachDistance;
+}
+
+void UBPCharacterMovement::EndGrapple()
+{
+	IsGrappling = false;
+	GravityScale = GetDefault<UBPCharacterMovement>(GetClass())->GravityScale;
 }
 
