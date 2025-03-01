@@ -11,6 +11,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "GrapplingHookAbility.h"
 #include "InputActionValue.h"
+#include "SprintAbility.h"
 #include "Engine/LocalPlayer.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -83,11 +84,17 @@ void ABPixelCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		{
 			for (const auto DefaultAbility : AbilitySystem->Abilities)
 			{
-				FGameplayAbilitySpecHandle AbilityHandle = AbilitySystem->GiveAbility(FGameplayAbilitySpec(DefaultAbility));
+				FGameplayAbilitySpecHandle AbilityHandle = AbilitySystem->GiveAbility(FGameplayAbilitySpec(DefaultAbility, 1, INDEX_NONE, this));
 
-				if (Cast<UGrapplingHookAbility>(DefaultAbility.GetDefaultObject()))
+				UGameplayAbility* DefaultAbilityObject = DefaultAbility.GetDefaultObject();
+
+				if (Cast<UGrapplingHookAbility>(DefaultAbilityObject))
 				{
 					GrapplingHookAbilityHandle = AbilityHandle;
+				}
+				else if (Cast<USprintAbility>(DefaultAbilityObject))
+				{
+					SprintAbilityHandle = AbilityHandle;
 				}
 			}
 		}
@@ -127,12 +134,12 @@ void ABPixelCharacter::Look(const FInputActionValue& Value)
 
 void ABPixelCharacter::StartSprint()
 {
-	GetCharacterMovement<UBPCharacterMovement>()->StartSprint();
+	AbilitySystem->TryActivateAbility(SprintAbilityHandle);
 }
 
 void ABPixelCharacter::EndSprint()
 {
-	GetCharacterMovement<UBPCharacterMovement>()->EndSprint();
+	AbilitySystem->CancelAbilityHandle(SprintAbilityHandle);
 }
 
 void ABPixelCharacter::StartGrappling()

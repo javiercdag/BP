@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BPCharacterMovement.h"
 #include "BPixelAbilitySystemComponent.h"
 #include "InputActionValue.h"
 #include "GameFramework/Character.h"
@@ -56,6 +57,7 @@ class ABPixelCharacter : public ACharacter
 	class UInputAction* GrapplingHookAction;
 
 	FGameplayAbilitySpecHandle GrapplingHookAbilityHandle;
+	FGameplayAbilitySpecHandle SprintAbilityHandle;
 public:
 	ABPixelCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 

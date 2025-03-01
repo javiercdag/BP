@@ -4,15 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "MovementAbility.h"
-#include "GrapplingHookAbility.generated.h"
+#include "SprintAbility.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class BPIXEL_API UGrapplingHookAbility : public UMovementAbility
+class BPIXEL_API USprintAbility : public UMovementAbility
 {
 	GENERATED_BODY()
+	
 public:
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
 	virtual void EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled) override;
