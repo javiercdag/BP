@@ -9,6 +9,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "GrapplingHookAbility.h"
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
 
@@ -36,6 +37,7 @@ ABPixelCharacter::ABPixelCharacter(const FObjectInitializer& ObjectInitializer) 
 	Mesh1P->CastShadow = false;
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
 
+	AbilitySystem = CreateDefaultSubobject<UBPixelAbilitySystemComponent>(TEXT("AbilitySystem"));
 }
 
 //////////////////////////////////////////////////////////////////////////// Input
@@ -72,6 +74,30 @@ void ABPixelCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		// Sprinting
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Started, this, &ABPixelCharacter::StartSprint);
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &ABPixelCharacter::EndSprint);
+
+		// Grappling
+		EnhancedInputComponent->BindAction(GrapplingHookAction, ETriggerEvent::Started, this, &ABPixelCharacter::StartGrappling);
+		EnhancedInputComponent->BindAction(GrapplingHookAction, ETriggerEvent::Completed, this, &ABPixelCharacter::EndGrappling);
+
+		if (AbilitySystem)
+		{
+			AbilitySystem->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(
+				"Confirm",
+				"Cancel",
+				"AbilityInputID",
+				static_cast<int32>(AbilityInputID::Confirm),
+				static_cast<int32>(AbilityInputID::Cancel)));
+
+			for (const auto DefaultAbility : AbilitySystem->Abilities)
+			{
+				FGameplayAbilitySpecHandle AbilityHandle = AbilitySystem->GiveAbility(FGameplayAbilitySpec(DefaultAbility));
+
+				if (Cast<UGrapplingHookAbility>(DefaultAbility.GetDefaultObject()))
+				{
+					GrapplingHookAbilityHandle = AbilityHandle;
+				}
+			}
+		}
 	}
 	else
 	{
@@ -114,5 +140,15 @@ void ABPixelCharacter::StartSprint()
 void ABPixelCharacter::EndSprint()
 {
 	GetCharacterMovement<UBPCharacterMovement>()->EndSprint();
+}
+
+void ABPixelCharacter::StartGrappling()
+{
+	AbilitySystem->TryActivateAbility(GrapplingHookAbilityHandle);
+}
+
+void ABPixelCharacter::EndGrappling()
+{
+	AbilitySystem->CancelAbilityHandle(GrapplingHookAbilityHandle);
 }
 

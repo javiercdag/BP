@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BPixelAbilitySystemComponent.h"
 #include "InputActionValue.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
@@ -49,7 +50,12 @@ class ABPixelCharacter : public ACharacter
 	/** Sprint Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* SprintAction;
-	
+
+	/** Grappling Hook Input Action */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* GrapplingHookAction;
+
+	FGameplayAbilitySpecHandle GrapplingHookAbilityHandle;
 public:
 	ABPixelCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
@@ -61,8 +67,9 @@ protected:
 	void Look(const FInputActionValue& Value);
 
 	void StartSprint();
-
 	void EndSprint();
+	void StartGrappling();
+	void EndGrappling();
 
 protected:
 	// APawn interface
@@ -72,6 +79,10 @@ protected:
 	/** Ends gameplay for this component. */
 
 public:
+	/** Ability System */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities)
+	UBPixelAbilitySystemComponent* AbilitySystem;
+	
 	/** Returns Mesh1P subobject **/
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
 	/** Returns FirstPersonCameraComponent subobject **/
