@@ -10,7 +10,24 @@ void UGrapplingHookAbility::ActivateAbility(const FGameplayAbilitySpecHandle Han
                                             const FGameplayEventData* TriggerEventData)
 {
 	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
+	FHitResult HitResult;
+	ABPixelCharacter* Character = Cast<ABPixelCharacter>(CharacterMovement->GetCharacterOwner());
+	APlayerController* PlayerController = Cast<APlayerController>(Character->Controller);
+	FCollisionQueryParams  COQP;
+	COQP.AddIgnoredActor(Character);
+	bool HasHit = GetWorld()->LineTraceSingleByChannel(HitResult, PlayerController->PlayerCameraManager->GetCameraLocation(), PlayerController->PlayerCameraManager->GetCameraLocation() + PlayerController->PlayerCameraManager->GetCameraRotation().Vector() * GrapplingHookDistance, ECC_Visibility);
 	UE_LOG(LogTemp, Warning, TEXT("Grappling Hook Started"));
+
+	if (HasHit && HitResult.IsValidBlockingHit())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Grappling Hook Hit Something"));
+		auto Actor = HitResult.GetActor();
+
+		if (Actor->Tags.Contains("GrappleAttachPoint"))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Hit Grappling Hook Attach Point"));
+		}
+	}
 }
 
 void UGrapplingHookAbility::EndAbility(const FGameplayAbilitySpecHandle Handle,
