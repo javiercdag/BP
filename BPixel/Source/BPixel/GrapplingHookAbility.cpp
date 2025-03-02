@@ -15,12 +15,12 @@ void UGrapplingHookAbility::ActivateAbility(const FGameplayAbilitySpecHandle Han
 	APlayerController* PlayerController = Cast<APlayerController>(Character->Controller);
 	FCollisionQueryParams  COQP;
 	COQP.AddIgnoredActor(Character);
-	bool HasHit = GetWorld()->LineTraceSingleByChannel(HitResult, PlayerController->PlayerCameraManager->GetCameraLocation(), PlayerController->PlayerCameraManager->GetCameraLocation() + PlayerController->PlayerCameraManager->GetCameraRotation().Vector() * GrapplingHookDistance, ECC_Visibility);
+	bool HasHit = GetWorld()->LineTraceSingleByChannel(HitResult, PlayerController->PlayerCameraManager->GetCameraLocation(), PlayerController->PlayerCameraManager->GetCameraLocation() + PlayerController->PlayerCameraManager->GetCameraRotation().Vector() * GrapplingHookDistance, ECC_Visibility, COQP);
 
 	if (HasHit && HitResult.IsValidBlockingHit())
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Grappling Hook Hit Something"));
-		auto Actor = HitResult.GetActor();
+		AActor* Actor = HitResult.GetActor();
 
 		if (Actor->Tags.Contains("GrappleAttachPoint"))
 		{

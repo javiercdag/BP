@@ -16,6 +16,18 @@ class BPIXEL_API UBPixelWeaponComponent : public USkeletalMeshComponent
 public:
 	UPROPERTY(Category="WeaponStats", EditAnywhere, BlueprintReadWrite)
 	float Damage = 1.f;
+
+	UPROPERTY(Category="WeaponStats", EditAnywhere, BlueprintReadWrite)
+	float FireRate = 700.f;
+
+	UPROPERTY(Category="WeaponStats", EditAnywhere, BlueprintReadWrite)
+	float ReloadSeconds = 4.f;
+
+	UPROPERTY(Category="WeaponStats", EditAnywhere, BlueprintReadWrite)
+	int MaxMagazineSize = 31;
+
+	UPROPERTY(Category="WeaponStats", EditAnywhere, BlueprintReadWrite)
+	float Range = 400000.f;
 	
 	/** Projectile class to spawn */
 	UPROPERTY(EditDefaultsOnly, Category=Projectile)
@@ -43,14 +55,13 @@ public:
 
 	/** Sets default values for this component's properties */
 	UBPixelWeaponComponent();
-
-	/** Attaches the actor to a FirstPersonCharacter */
-	UFUNCTION(BlueprintCallable, Category="Weapon")
-	bool AttachWeapon(ABPixelCharacter* TargetCharacter);
-
+	
 	/** Make the weapon Fire a Projectile */
 	UFUNCTION(BlueprintCallable, Category="Weapon")
 	void Fire();
+	void EndFire();
+	void FireSingleShot();
+	void Reload();
 
 protected:
 	virtual void BeginPlay() override;
@@ -59,7 +70,19 @@ protected:
 	UFUNCTION()
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
+	/** Fire Input Action */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
+	int BulletsLeftInMagazine;
+
 private:
 	/** The Character holding this weapon*/
 	ABPixelCharacter* Character;
+
+	APlayerController* PlayerController;
+	FTimerHandle AutoFireHandle;
+	FTimerHandle ReloadHandle;
+	FTimerHandle AttachWeaponHandle;
+
+	bool AttachWeapon(ABPixelCharacter* TargetCharacter);
+	void AttachWeaponPlayerDelayed();
 };
