@@ -69,6 +69,13 @@ void UBPixelWeaponComponent::Fire()
 	}
 }
 
+void UBPixelWeaponComponent::BeginPlay()
+{
+	Super::BeginPlay();
+
+	AttachWeapon(Cast<ABPixelCharacter>(GetWorld()->GetFirstPlayerController()->GetCharacter()));
+}
+
 bool UBPixelWeaponComponent::AttachWeapon(ABPixelCharacter* TargetCharacter)
 {
 	Character = TargetCharacter;
