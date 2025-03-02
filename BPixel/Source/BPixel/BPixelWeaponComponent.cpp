@@ -93,19 +93,20 @@ void UBPixelWeaponComponent::FireSingleShot()
 				{
 					DamageReceiver->ApplyHitDamage(Damage);
 				}
+			}
 
-				BulletsLeftInMagazine--;
+			BulletsLeftInMagazine--;
 
-				if (BulletsLeftInMagazine <= 0 && !ReloadHandle.IsValid())
-				{
-					GetWorld()->GetTimerManager().SetTimer(ReloadHandle, this, &UBPixelWeaponComponent::Reload, ReloadSeconds, false, -1);
-				}
+			if (BulletsLeftInMagazine <= 0 && !ReloadHandle.IsValid())
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Reloading..."));
+				GetWorld()->GetTimerManager().SetTimer(ReloadHandle, this, &UBPixelWeaponComponent::Reload, ReloadSeconds, false, -1);
 			}
 
 			// Try and play the sound if specified
 			if (FireSound != nullptr)
 			{
-				UGameplayStatics::PlaySoundAtLocation(this, FireSound, Character->GetActorLocation(), 0.25f, 1.f, 0);
+				UGameplayStatics::PlaySoundAtLocation(this, FireSound, Character->GetActorLocation(), 0.25f, 1.f, 0, nullptr);
 			}
 		}
 	}
@@ -115,6 +116,7 @@ void UBPixelWeaponComponent::Reload()
 {
 	BulletsLeftInMagazine = MaxMagazineSize;
 	GetWorld()->GetTimerManager().ClearTimer(ReloadHandle);
+	UE_LOG(LogTemp, Warning, TEXT("Reload finished"));
 }
 
 bool UBPixelWeaponComponent::AttachWeapon(ABPixelCharacter* TargetCharacter)
