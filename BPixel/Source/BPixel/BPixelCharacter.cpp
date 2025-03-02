@@ -12,6 +12,7 @@
 #include "GrapplingHookAbility.h"
 #include "InputActionValue.h"
 #include "SprintAbility.h"
+#include "ViewEventBus.h"
 #include "Engine/LocalPlayer.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -39,6 +40,35 @@ ABPixelCharacter::ABPixelCharacter(const FObjectInitializer& ObjectInitializer) 
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
 
 	AbilitySystem = CreateDefaultSubobject<UBPixelAbilitySystemComponent>(TEXT("AbilitySystem"));
+}
+
+void ABPixelCharacter::AddInteractionMode(EInteractionModeFlags Mode)
+{
+	EInteractionModeFlags PreviousInteractionMode = InteractionMode;
+	InteractionMode |= Mode;
+	NotifyPossibleInteractionModeChange(PreviousInteractionMode);
+}
+
+void ABPixelCharacter::RemoveInteractionMode(EInteractionModeFlags Mode)
+{
+	EInteractionModeFlags PreviousInteractionMode = InteractionMode;
+	InteractionMode &= ~Mode;
+	NotifyPossibleInteractionModeChange(PreviousInteractionMode);
+}
+
+void ABPixelCharacter::NotifyPossibleInteractionModeChange(const EInteractionModeFlags PreviousInteractionMode)
+{
+	if (InteractionMode != PreviousInteractionMode)
+	{
+		InteractionModeChanged.Broadcast(static_cast<uint8>(InteractionMode));
+
+		if (UViewEventBus* ViewEventBus = GetWorld()->GetGameInstance()->GetSubsystem<UViewEventBus>())
+		{
+			ViewEventBus->InteractionModeChanged.Broadcast(static_cast<uint8>(InteractionMode));
+		}
+		
+		UE_LOG(LogTemp, Warning, TEXT("Interaction Mode Changed"));
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////// Input

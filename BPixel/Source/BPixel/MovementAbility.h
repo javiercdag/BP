@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BPCharacterMovement.h"
 #include "BPixelCharacter.h"
 #include "MovementAbility.generated.h"
 

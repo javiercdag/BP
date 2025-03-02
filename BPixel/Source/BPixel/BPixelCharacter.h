@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BPCharacterMovement.h"
 #include "BPixelAbilitySystemComponent.h"
 #include "InputActionValue.h"
 #include "GameFramework/Character.h"
@@ -18,6 +17,16 @@ class UInputMappingContext;
 struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
+
+UENUM(BlueprintType)
+enum class EInteractionModeFlags : uint8
+{
+	None = 0x00,
+	GrapplingReady = 0x01
+};
+ENUM_CLASS_FLAGS(EInteractionModeFlags)
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnInteractionModeChanged, uint8, InteractionMode);
 
 UCLASS(config=Game)
 class ABPixelCharacter : public ACharacter
@@ -58,8 +67,13 @@ class ABPixelCharacter : public ACharacter
 
 	FGameplayAbilitySpecHandle GrapplingHookAbilityHandle;
 	FGameplayAbilitySpecHandle SprintAbilityHandle;
+	
 public:
+	EInteractionModeFlags InteractionMode;
+	FOnInteractionModeChanged InteractionModeChanged;
 	ABPixelCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+	void AddInteractionMode(EInteractionModeFlags Mode);
+	void RemoveInteractionMode(EInteractionModeFlags Mode);
 
 protected:
 	/** Called for movement input */
@@ -71,6 +85,7 @@ protected:
 	void StartSprint();
 	void EndSprint();
 	void StartGrappling();
+	void NotifyPossibleInteractionModeChange(EInteractionModeFlags Mode);
 
 protected:
 	// APawn interface

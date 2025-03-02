@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BPixelCharacter.h"
 #include "BPixelWeaponComponent.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "ViewEventBus.generated.h"
@@ -21,4 +22,7 @@ class BPIXEL_API UViewEventBus : public UGameInstanceSubsystem
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintAssignable, Category = Channels)
 	FOnWeaponEquipped PlayerWeaponEquipped;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintAssignable, Category = Channels)
+	FOnInteractionModeChanged InteractionModeChanged;
 };

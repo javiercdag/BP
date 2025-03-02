@@ -13,6 +13,16 @@ UCLASS()
 class BPIXEL_API UGrapplingHookAbility : public UMovementAbility
 {
 	GENERATED_BODY()
+	FTimerHandle GrapplePointTargetFindingHandle;
+	AActor* OwnerActor;
+	ABPixelCharacter* BPCharacter;
+	virtual void OnGiveAbility(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec) override;
+	AActor* ViableTargetInSight() const;
+	void UpdateGrapplePointTargetFinding();
+	
+	UFUNCTION()
+	void OnOwnerEndPlay(AActor* Actor, EEndPlayReason::Type Reason);
+	
 public:
 	UPROPERTY(BlueprintReadOnly)
 	float GrapplingHookDistance = 5000.f;
