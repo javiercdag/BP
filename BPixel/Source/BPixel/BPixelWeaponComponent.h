@@ -8,6 +8,9 @@
 
 class ABPixelCharacter;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWeaponReloadStarted);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWeaponReloadEnded);
+
 UCLASS(Blueprintable, BlueprintType, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BPIXEL_API UBPixelWeaponComponent : public USkeletalMeshComponent
 {
@@ -52,6 +55,12 @@ public:
 	/** Fire Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	class UInputAction* FireAction;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintAssignable, Category = Channels)
+	FOnWeaponReloadStarted WeaponReloadStarted;
+
+	UPROPERTY(VisibleAnywhere, BlueprintAssignable, Category = Channels)
+	FOnWeaponReloadEnded WeaponReloadEnded;
 
 	/** Sets default values for this component's properties */
 	UBPixelWeaponComponent();

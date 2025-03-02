@@ -10,6 +10,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "ViewEventBus.h"
 #include "Animation/AnimInstance.h"
 #include "Engine/LocalPlayer.h"
 #include "Engine/World.h"
@@ -101,6 +102,7 @@ void UBPixelWeaponComponent::FireSingleShot()
 			{
 				UE_LOG(LogTemp, Warning, TEXT("Reloading..."));
 				GetWorld()->GetTimerManager().SetTimer(ReloadHandle, this, &UBPixelWeaponComponent::Reload, ReloadSeconds, false, -1);
+				WeaponReloadStarted.Broadcast();
 			}
 
 			// Try and play the sound if specified
@@ -116,6 +118,7 @@ void UBPixelWeaponComponent::Reload()
 {
 	BulletsLeftInMagazine = MaxMagazineSize;
 	GetWorld()->GetTimerManager().ClearTimer(ReloadHandle);
+	WeaponReloadEnded.Broadcast();
 	UE_LOG(LogTemp, Warning, TEXT("Reload finished"));
 }
 
@@ -137,6 +140,11 @@ bool UBPixelWeaponComponent::AttachWeapon(ABPixelCharacter* TargetCharacter)
 	// Set up action bindings
 	if (PlayerController)
 	{
+		if (UViewEventBus* ViewEventBus = GetWorld()->GetGameInstance()->GetSubsystem<UViewEventBus>())
+		{
+			ViewEventBus->PlayerWeaponEquipped.Broadcast(this);
+		}
+		
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
 			// Set the priority of the mapping to 1, so that it overrides the Jump action with the Fire action when using touch input

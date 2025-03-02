@@ -4,17 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "DamageReceiver.h"
-#include "UEventBus.generated.h"
+#include "UModelEventBus.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTargetSpawnedEvent, UDamageReceiver*, TargetDamageReceiver);
 
 UCLASS()
-class BPIXEL_API UEventBus final : public UWorldSubsystem
+class BPIXEL_API UModelEventBus final : public UWorldSubsystem
 {
 	GENERATED_BODY()
 public:
-	UEventBus();
-	
+	UModelEventBus();
+
+	UPROPERTY(VisibleAnywhere, BlueprintAssignable, Category = Channels)
 	FOnTargetSpawnedEvent TargetSpawned;
 };
 

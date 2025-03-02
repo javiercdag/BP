@@ -3,12 +3,12 @@
 
 #include "KillAllMission.h"
 
-#include "UEventBus.h"
+#include "UModelEventBus.h"
 
 void UKillAllMission::StartMission()
 {
 	Super::StartMission();
-	GetWorld()->GetSubsystem<UEventBus>()->TargetSpawned.AddDynamic(this, &UKillAllMission::OnTargetSpawned);
+	GetWorld()->GetSubsystem<UModelEventBus>()->TargetSpawned.AddDynamic(this, &UKillAllMission::OnTargetSpawned);
 }
 
 void UKillAllMission::OnTargetSpawned(UDamageReceiver* Target)
