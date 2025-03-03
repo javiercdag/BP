@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "MissionAction.h"
+#include "MissionDataAsset.h"
 #include "Mission.generated.h"
 
 /**
@@ -26,13 +27,14 @@ class BPIXEL_API UMission : public UObject
 	GENERATED_BODY()
 
 public:
-	TArray<TSubclassOf<UMissionAction>> PreMissionStartActions;
-	TArray<TSubclassOf<UMissionAction>> PostMissionStartActions;
-	TArray<TSubclassOf<UMissionAction>> PreMissionEndActions;
-	TArray<TSubclassOf<UMissionAction>> PostMissionEndActions;
+	TArray<UMissionAction*> PreMissionStartActions;
+	TArray<UMissionAction*> PostMissionStartActions;
+	TArray<UMissionAction*> PreMissionEndActions;
+	TArray<UMissionAction*> PostMissionEndActions;
 	
 	UMission();
 
+	void Initialize(UMissionDataAsset* MissionData);
 	void StartMission();
 	void EndMission(const EMissionEndType Reason);
 
@@ -43,7 +45,7 @@ protected:
 	virtual void OnMissionEnd();
 	
 private:
-	void RunActions(TArray<TSubclassOf<UMissionAction>> Actions);
+	void RunActions(TArray<UMissionAction*> Actions);
 };
 
 

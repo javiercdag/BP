@@ -7,6 +7,29 @@ UMission::UMission()
 {
 }
 
+void UMission::Initialize(UMissionDataAsset* MissionData)
+{
+	for (int i = 0; i < MissionData->PreMissionStartActions.Num(); i++)
+	{
+		PreMissionStartActions.Add(NewObject<UMissionAction>(this, MissionData->PreMissionStartActions[i]->MissionActionClass));
+	}
+
+	for (int i = 0; i < MissionData->PostMissionStartActions.Num(); i++)
+	{
+		PostMissionStartActions.Add(NewObject<UMissionAction>(this, MissionData->PostMissionStartActions[i]->MissionActionClass));
+	}
+
+	for (int i = 0; i < MissionData->PreMissionEndActions.Num(); i++)
+	{
+		PreMissionEndActions.Add(NewObject<UMissionAction>(this, MissionData->PreMissionEndActions[i]->MissionActionClass));
+	}
+	
+	for (int i = 0; i < MissionData->PostMissionEndActions.Num(); i++)
+	{
+		PostMissionEndActions.Add(NewObject<UMissionAction>(this, MissionData->PostMissionEndActions[i]->MissionActionClass));
+	}
+}
+
 void UMission::StartMission()
 {
 	RunActions(PreMissionStartActions);
@@ -25,13 +48,10 @@ void UMission::EndMission(const EMissionEndType Reason)
 void UMission::OnMissionStart() { }
 void UMission::OnMissionEnd() { }
 
-void UMission::RunActions(TArray<TSubclassOf<UMissionAction>> Actions)
+void UMission::RunActions(TArray<UMissionAction*> Actions)
 {
 	for (int i = 0; i < Actions.Num(); i++)
 	{
-		if (UMissionAction* MissionActionInstance = NewObject<UMissionAction>(this, Actions[i]))
-		{
-			MissionActionInstance->DoAction();
-		}
+		Actions[i]->DoAction();
 	}
 }

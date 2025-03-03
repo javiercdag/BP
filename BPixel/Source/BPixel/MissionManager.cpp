@@ -18,17 +18,18 @@ void AMissionManager::BeginPlay()
 void AMissionManager::PostInitializeComponents()
 {
 	Super::PostInitializeComponents();
-
+	
 	if (!MissionDefinitions.IsEmpty())
 	{
 		for (int i = 0; i < MissionDefinitions.Num(); i++)
 		{
-			UMission* MissionInstance = NewObject<UMission>(this, MissionDefinitions[i]);
+			UMission* MissionInstance = NewObject<UMission>(this, MissionDefinitions[i]->MissionClass);
+			MissionInstance->Initialize(MissionDefinitions[i]);
 			Missions.Add(MissionInstance);
 		}
-	
-		StartMission(0);
 	}
+	
+	StartMission(0);
 }
 
 void AMissionManager::StartMission(int MissionIndex)
