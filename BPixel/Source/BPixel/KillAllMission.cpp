@@ -5,10 +5,16 @@
 
 #include "UModelEventBus.h"
 
-void UKillAllMission::StartMission()
+void UKillAllMission::OnMissionStart()
 {
-	Super::StartMission();
+	Super::OnMissionStart();
 	GetWorld()->GetSubsystem<UModelEventBus>()->TargetSpawned.AddDynamic(this, &UKillAllMission::OnTargetSpawned);
+}
+
+void UKillAllMission::OnMissionEnd()
+{
+	Super::OnMissionEnd();
+	GetWorld()->GetSubsystem<UModelEventBus>()->TargetSpawned.RemoveDynamic(this, &UKillAllMission::OnTargetSpawned);
 }
 
 void UKillAllMission::OnTargetSpawned(UDamageReceiver* Target)

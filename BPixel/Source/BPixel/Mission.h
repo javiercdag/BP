@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "MissionAction.h"
 #include "Mission.generated.h"
 
 /**
@@ -25,12 +26,24 @@ class BPIXEL_API UMission : public UObject
 	GENERATED_BODY()
 
 public:
+	TArray<TSubclassOf<UMissionAction>> PreMissionStartActions;
+	TArray<TSubclassOf<UMissionAction>> PostMissionStartActions;
+	TArray<TSubclassOf<UMissionAction>> PreMissionEndActions;
+	TArray<TSubclassOf<UMissionAction>> PostMissionEndActions;
+	
 	UMission();
 
-	virtual void StartMission();
-	virtual void EndMission(const EMissionEndType Reason);
+	void StartMission();
+	void EndMission(const EMissionEndType Reason);
 
 	FOnMissionEnded OnMissionEnded;
+
+protected:
+	virtual void OnMissionStart();
+	virtual void OnMissionEnd();
+	
+private:
+	void RunActions(TArray<TSubclassOf<UMissionAction>> Actions);
 };
 
 

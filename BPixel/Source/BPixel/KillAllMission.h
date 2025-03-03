@@ -18,7 +18,8 @@ class BPIXEL_API UKillAllMission : public UMission
 public:
 	TArray<TWeakObjectPtr<UDamageReceiver>> Targets;
 
-	virtual void StartMission() override;
+	virtual void OnMissionStart() override;
+	virtual void OnMissionEnd() override;
 	
 	UFUNCTION()
 	void OnTargetSpawned(UDamageReceiver* Target);
