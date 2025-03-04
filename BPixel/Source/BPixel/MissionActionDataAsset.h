@@ -15,5 +15,6 @@ class BPIXEL_API UMissionActionDataAsset : public UDataAsset
 {
 	GENERATED_BODY()
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Missions")
 	TSubclassOf<UMissionAction> MissionActionClass;
 };

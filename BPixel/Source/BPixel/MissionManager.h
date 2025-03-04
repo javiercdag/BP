@@ -15,7 +15,7 @@ class BPIXEL_API AMissionManager : public AActor
 	TArray<UMission*> Missions;
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Instanced, Category = "Missions")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Missions")
 	TArray<UMissionDataAsset*> MissionDefinitions;
 	// Sets default values for this actor's properties
 	AMissionManager();
