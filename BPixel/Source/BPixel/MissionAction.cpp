@@ -6,3 +6,5 @@
 UMissionAction::UMissionAction() { }
 
 void UMissionAction::DoAction() { }
+
+void UMissionAction::Initialize(UMissionActionDataAsset* MissionActionData) { }

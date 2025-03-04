@@ -22,4 +22,8 @@ public:
 	int ActorCount;
 	
 	virtual void DoAction() override;
+	virtual void Initialize(UMissionActionDataAsset* MissionActionData) override;
+
+private:
+	void SpawnActorOnNavMesh();
 };

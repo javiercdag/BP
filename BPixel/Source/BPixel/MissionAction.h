@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "MissionActionDataAsset.h"
 #include "MissionAction.generated.h"
 
 /**
@@ -17,4 +18,5 @@ public:
 	UMissionAction();
 
 	virtual void DoAction();
+	virtual void Initialize(UMissionActionDataAsset* MissionActionData);
 };

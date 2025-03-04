@@ -3,10 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "MissionAction.h"
 #include "Engine/DataAsset.h"
 #include "MissionActionDataAsset.generated.h"
 
+class UMissionAction;
 /**
  * 
  */
